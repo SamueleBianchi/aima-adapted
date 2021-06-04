@@ -38,7 +38,7 @@ def depth_limited_search(problem, limit=20):
     return recursive_dls(Node(problem.initial), problem, limit)
 
 #esempi con 1/2/10/20
-#show_solution('DLS',depth_limited_search(romania_problem,10))
+show_solution('DLS',depth_limited_search(romania_problem,10))
 
 
 def iterative_deepening_search(problem):
@@ -48,7 +48,7 @@ def iterative_deepening_search(problem):
         if result != 'cutoff':
             return result
 
-#show_solution('IDS',iterative_deepening_search(romania_problem))
+show_solution('IDS',iterative_deepening_search(romania_problem))
 
 # a lezione 
 #from esercitazione_13_ottobre_live import best_first
@@ -90,7 +90,7 @@ def ucs_search(problem):
     return best_first(problem, lambda n: n.path_cost)
 
 risultato = ucs_search(romania_problem)
-#show_solution("UCS {}".format(numero_nodi),risultato)
+show_solution("UCS {}".format(numero_nodi),risultato)
 
 #presentare greedy 
 #dire che per questo problema H=distanza euclidea trai nodi e mostrare codice in Class Problem
@@ -101,7 +101,7 @@ def greedy_search(problem, h=None):
     return best_first(problem, lambda n: h(n))
 
 risultato = greedy_search(romania_problem)
-#show_solution("GREEDY {}".format(numero_nodi),risultato)
+show_solution("GREEDY {}".format(numero_nodi),risultato)
 
 # dire che greedy + ucs = a*
 def astar_search(problem, h=None):
@@ -110,7 +110,7 @@ def astar_search(problem, h=None):
     return best_first(problem, lambda n: n.path_cost + h(n))
 
 risultato = astar_search(romania_problem)
-#show_solution("A STAR {}".format(numero_nodi),risultato)
+show_solution("A STAR {}".format(numero_nodi),risultato)
 
 sys.setrecursionlimit(10000)
 
@@ -167,4 +167,4 @@ def recursive_best_first_search(problem, h=None):
     return RBFS(problem, node)[0]
 
 risultato = recursive_best_first_search(romania_problem)
-#show_solution('RBFS {} (MAX)'.format(numero_nodi_max),risultato)
+show_solution('RBFS {} (MAX)'.format(numero_nodi_max),risultato)

@@ -78,10 +78,9 @@ def greedy_search(problem):
 
 #show_solution("GREEDY SEARCH", greedy_search(romania_problem))
 
-def astar_search(problem):
-    h = memoize(problem.h, 'h')
-    g = memoize(lambda n: n.path_cost, 'g')
-    return best_first(problem, f = lambda n: g(n) + h(n))
+def astar_search(problem, h=None):
+    h = memoize(h or problem.h, 'h')
+    return best_first(problem, lambda n: n.path_cost + h(n))
 
 #show_solution("ASTAR", astar_search(romania_problem))
 
